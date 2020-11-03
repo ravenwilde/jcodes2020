@@ -1,22 +1,60 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import { reduce, assign } from "lodash"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Resume from "../components/resume"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const [view, setView] = useState("index")
+
+  const { nodes } = data.allDataJson
+
+  const content = reduce(
+    nodes,
+    (key, value) => {
+      return assign(key, value)
+    },
+    {}
+  )
+
+  const handleChange = e => {
+    setView(e.target.value)
+  }
+
+  return (
+    <Layout onChange={handleChange}>
+      <SEO title="Home" />
+      {view === "resume" && content.resume && (
+        <Resume resume={content.resume} />
+      )}
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allDataJson {
+      nodes {
+        resume {
+          statement
+          experience {
+            description
+            employer
+            end_date
+            location
+            start_date
+            tech {
+              tag
+              type
+            }
+            title
+          }
+        }
+      }
+    }
+  }
+`

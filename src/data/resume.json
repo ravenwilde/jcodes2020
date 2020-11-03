@@ -1,0 +1,146 @@
+{
+  "resume": {
+    "statement": "I am a Web Applications Engineer with a background in design; a creator of wireframes and a builder of interfaces. I design web applications from the ground up and bring them to life in Javascript, HTML & CSS.",
+    "experience": [
+      {
+        "title": "Software Engineer II",
+        "employer": "Clubhouse Software, Inc",
+        "location": "Remote from Ann Arbor, MI",
+        "start_date": "Jan 2020",
+        "end_date": "Present",
+        "description": "Took over management of a team of contractors to deliver a React.js web application on time and to the specifications of an external client. I planned and delegated tasks, lead retrospectives, contributed to and improved the project's codebase. Most importantly, I performed an overhaul of the entire application interface to meet State mandated accessibility requirements.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "React.js", "type": "behavior" },
+          { "tag": "Redux", "type": "behavior" },
+          { "tag": "Sass", "type": "style" },
+          { "tag": "CSSModules", "type": "style" },
+          { "tag": "Node", "type": "tooling" },
+          { "tag": "Webpack", "type": "tooling" },
+          { "tag": "Git", "type": "tooling" }
+        ]
+      },
+      {
+        "title": "Senior Software Engineer",
+        "employer": "LiteracyPro Systems, Inc",
+        "location": "Remote from Ann Arbor, MI",
+        "start_date": "Aug 2019",
+        "end_date": "Dec 2019",
+        "description": "Took over management of a team of contractors to deliver a React.js web application on time and to the specifications of an external client. I planned and delegated tasks, lead retrospectives, contributed to and improved the project's codebase. Most importantly, I performed an overhaul of the entire application interface to meet State mandated accessibility requirements.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "React.js", "type": "behavior" },
+          { "tag": "Redux", "type": "behavior" },
+          { "tag": "Sass", "type": "style" },
+          { "tag": "CSSModules", "type": "style" },
+          { "tag": "Node", "type": "tooling" },
+          { "tag": "Webpack", "type": "tooling" },
+          { "tag": "Git", "type": "tooling" },
+          { "tag": "Heroku", "type": "tooling" },
+          { "tag": "TrackJS", "type": "api" },
+          { "tag": "HelloSign", "type": "api" }
+        ]
+      },
+      {
+        "title": "Frontend Engineer",
+        "employer": "FarmLogs, Inc",
+        "location": "Remote from Ann Arbor, MI",
+        "start_date": "Jul 2017",
+        "end_date": "Jun 2019",
+        "description": "Worked collaboratively to build new features and maintained the FarmLogs web application & marketing website. I curated our UI components and LESS styles; carried out major refactors and redesigns of core component systems like navigation, datepickers, tooltips and popovers. Worked with Product & Design to break projects down, iterate during development and deliver on time.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "React.js & Backbone.js", "type": "behavior" },
+          { "tag": "GraphQL/Apollo/Redux", "type": "behavior" },
+          { "tag": "Less & Sass", "type": "style" },
+          { "tag": "Aphrodite Stylesheets", "type": "style" },
+          { "tag": "CSSModules", "type": "style" },
+          { "tag": "React Storybook", "type": "tooling" },
+          { "tag": "Node", "type": "tooling" },
+          { "tag": "Webpack", "type": "tooling" },
+          { "tag": "Git", "type": "tooling" },
+          { "tag": "LaunchDarkly", "type": "api" },
+          { "tag": "Stripe.js", "type": "api" },
+          { "tag": "Prismic.io", "type": "api" },
+          { "tag": "DarkSky", "type": "api" },
+          { "tag": "Segment", "type": "api" },
+          { "tag": "Google Analytics", "type": "api" },
+          { "tag": "Adwords", "type": "api" }
+        ]
+      },
+      {
+        "title": "Frontend Developer",
+        "employer": "AdAdapted, Inc",
+        "location": "Ann Arbor, MI",
+        "start_date": "Aug 2015",
+        "end_date": "Jun 2017",
+        "description": "Eliminated technical debt and created new interfaces for the AdAdapted, PHP-based, web application. Also maintained various additional projects, including a documentation website, static content pages and various interactive demo prototypes.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "jQuery", "type": "behavior" },
+          { "tag": "React.js with Redux & Lodash", "type": "behavior" },
+          { "tag": "Sass & PostCSS", "type": "style" },
+          { "tag": "PHP", "type": "php" },
+          { "tag": "Laravel", "type": "php" },
+          { "tag": "Code Igniter", "type": "php" },
+          { "tag": "Grunt.js", "type": "tooling" },
+          { "tag": "Homestead/Vagrant", "type": "tooling" },
+          { "tag": "Elixir/Gulp", "type": "tooling" },
+          { "tag": "Assemble.io", "type": "api" },
+          { "tag": "Plotly.js", "type": "api" },
+          { "tag": "Motion-ui", "type": "api" },
+          { "tag": "Github & Guthub Pages", "type": "api" }
+        ]
+      },
+      {
+        "title": "Web Designer & Developer",
+        "employer": "Freelance",
+        "location": "Ann Arbor, MI",
+        "start_date": "2009",
+        "end_date": "Jun 2017",
+        "description": "Mobile first, responsive site design and consulting for individuals and small businesses.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "jQuery", "type": "behavior" },
+          { "tag": "Sass/CSS", "type": "style" },
+          { "tag": "PHP", "type": "php" },
+          { "tag": "WordPress", "type": "php" },
+          { "tag": "PerchCMS", "type": "php" }
+        ]
+      },
+      {
+        "title": "Frontend Developer",
+        "employer": "Orderv",
+        "location": "Ann Arbor, MI",
+        "start_date": "Nov 2014",
+        "end_date": "Jul 2015",
+        "description": "Responsible for the design, implementation & maintenance of all interfaces for the Orderv, PHP web application & marketing website.",
+        "tech": [
+          { "tag": "Javascript", "type": "behavior" },
+          { "tag": "jQuery", "type": "behavior" },
+          { "tag": "PHP", "type": "php" },
+          { "tag": "Symfony w/Twig Templates", "type": "php" },
+          { "tag": "Sass with Bourbon/Neat", "type": "style" },
+          { "tag": "Bootstrap-Sass", "type": "style" },
+          { "tag": "SVG images and icons", "type": "style" }
+        ]
+      },
+      {
+        "title": "Interface Designer & Front-end Developer",
+        "employer": "MedHub",
+        "location": "Ann Arbor, MI",
+        "start_date": "Jul 2014",
+        "end_date": "Oct 2014",
+        "description": "PHP, Javascript/jQuery, HTML & CSS/Sass development & interface design for in-house customer support application."
+      },
+      {
+        "title": "Web Designer & Administrator",
+        "employer": "University of Michigan College of Engineering",
+        "location": "Ann Arbor, MI",
+        "start_date": "Jun 2012",
+        "end_date": "Jun 2014",
+        "description": "Template development, debugging and Content Management for the Michigan Engineering website."
+      }
+    ]
+  }
+}

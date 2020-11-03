@@ -1,18 +1,24 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import styled, { ThemeProvider } from "styled-components"
+import { TypographyStyle, GoogleFont } from "react-typography"
+
+import { palettes } from "../utils/colors"
+import typography, { rhythm } from "../utils/typography"
 
 import Header from "./header"
-import "./layout.css"
 
-const Layout = ({ children }) => {
+import "./global.css"
+
+const Main = styled.main`
+  margin: 0 auto;
+  max-width: 860px;
+  padding: 0px ${rhythm(0.5)} ${rhythm(8)};
+  transition: padding 0.5s ease;
+`
+
+const Layout = ({ children, onChange }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,25 +30,15 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <ThemeProvider theme={palettes.grayScale}>
+      <TypographyStyle typography={typography} />
+      <GoogleFont typography={typography} />
+      <Header
+        onChange={onChange}
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+      />
+      <Main>{children}</Main>
+    </ThemeProvider>
   )
 }
 
