@@ -6,7 +6,6 @@ import { Link } from "gatsby"
 import { scale, rhythm } from "../utils/typography"
 import { colors, defaultColor } from "../utils/colors"
 
-import Card from "./card"
 import SocialLinks from "./socials"
 
 const getColorByType = (type, theme) => {
@@ -25,31 +24,6 @@ const getColorByType = (type, theme) => {
       return theme.primary.hex
   }
 }
-
-const HeaderCard = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (min-width: 30em) {
-    flex-direction: row;
-  }
-`
-
-const Statement = styled.p`
-  font-size: 1rem;
-  font-weight: 600;
-  padding-bottom: ${rhythm(1)};
-  border-bottom: 1px solid lightgrey;
-  margin-bottom: ${rhythm(1)};
-  @media (min-width: 30em) {
-    padding-bottom: 0;
-    padding-right: ${rhythm(1)};
-    border-bottom: 0;
-    border-right: 1px solid lightgrey;
-    margin-bottom: 0;
-    margin-right: ${rhythm(1)};
-  }
-`
 
 const H3 = styled.h3`
   display: flex;
@@ -117,7 +91,7 @@ const HR = styled.hr`
 `
 
 const Resume = ({ resume }) => (
-  <Card>
+  <div>
     <h2>Experience</h2>
     <HR />
     {resume.experience.map(e => (
@@ -153,7 +127,7 @@ const Resume = ({ resume }) => (
       <a href={"https://linkedin.com/in/jenniferascroggins/"}>LinkedIn</a>{" "}
       &raquo;
     </p>
-  </Card>
+  </div>
 )
 
 export default Resume

@@ -1,4 +1,5 @@
 import React from "react"
+import { animated, useSpring } from "react-spring"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
@@ -11,14 +12,13 @@ import Header from "./header"
 
 import "./global.css"
 
-const Main = styled.main`
+const Main = styled(animated.main)`
   margin: 0 auto;
   max-width: 860px;
-  padding: 0px ${rhythm(0.5)} ${rhythm(8)};
-  transition: padding 0.5s ease;
+  padding: 0 ${rhythm(1)};
 `
 
-const Layout = ({ children, onChange }) => {
+const Layout = ({ about, children, onChange, view }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,21 +29,33 @@ const Layout = ({ children, onChange }) => {
     }
   `)
 
+  const mainSpring = useSpring({
+    height: view !== "resume" ? "0vh" : "65vh",
+    paddingBottom: view !== "resume" ? rhythm(4) : rhythm(),
+  })
+
   return (
     <ThemeProvider theme={palettes.grayScale}>
       <TypographyStyle typography={typography} />
       <GoogleFont typography={typography} />
       <Header
+        about={about}
         onChange={onChange}
         siteTitle={data.site.siteMetadata?.title || `Title`}
+        view={view}
       />
-      <Main>{children}</Main>
+      <Main style={mainSpring} view={view}>
+        {children}
+      </Main>
     </ThemeProvider>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  about: PropTypes.string,
+  children: PropTypes.node,
+  onChange: PropTypes.func,
+  view: PropTypes.string,
 }
 
 export default Layout

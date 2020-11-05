@@ -1,13 +1,14 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import { reduce, assign } from "lodash"
 
+import ErrorBoundary from "../components/errorBoundary"
 import Layout from "../components/layout"
 import Resume from "../components/resume"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
   const [view, setView] = useState("index")
+  const [state, setState] = useState("loading")
 
   const { nodes } = data.allDataJson
 
@@ -24,7 +25,11 @@ const IndexPage = ({ data }) => {
   }
 
   return (
-    <Layout onChange={handleChange}>
+    <Layout
+      view={view}
+      onChange={handleChange}
+      about={content.resume && content.resume.statement}
+    >
       <SEO title="Home" />
       {view === "resume" && content.resume && (
         <Resume resume={content.resume} />
