@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 import { rhythm } from "../utils/typography"
 
+import Button from "./button"
 import ErrorBoundary from "./errorBoundary"
 
 const HeaderStyled = styled(animated.header)`
@@ -27,15 +28,12 @@ const Content = styled.div`
 `
 
 const Nav = styled(animated.nav)`
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   max-width: 600px;
   padding-left: ${rhythm(1)};
   padding-right: ${rhythm(1)};
-  width: 100%;
-`
-
-const Select = styled.select`
-  display: block;
   width: 100%;
 `
 
@@ -120,11 +118,20 @@ const Header = ({ about, onChange, siteTitle, view }) => {
           </ContentCard>
         </Content>
         <Nav style={navSpring} view={view}>
-          <Select onChange={onChange} name="siteNav">
-            <option value="index">Hello</option>
-            <option value="about">About</option>
-            <option value="resume">Resume</option>
-          </Select>
+          <Button onClick={onChange} name="navOne" type="button" value="index">
+            Hello
+          </Button>
+          <Button onClick={onChange} name="navTwo" type="button" value="about">
+            About
+          </Button>
+          <Button
+            onClick={onChange}
+            name="navThree"
+            type="button"
+            value="resume"
+          >
+            Resume
+          </Button>
         </Nav>
       </ErrorBoundary>
     </HeaderStyled>
