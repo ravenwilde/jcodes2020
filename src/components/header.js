@@ -13,6 +13,19 @@ const HeaderStyled = styled(animated.header)`
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  nav {
+    color: ${props => props.theme.header.hex};
+  }
+  p {
+    color: ${props => props.theme.header.hex};
+  }
 `
 
 const Content = styled.div`

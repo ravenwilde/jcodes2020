@@ -4,7 +4,6 @@ import Color from "color"
 import { Link } from "gatsby"
 
 import { scale, rhythm } from "../utils/typography"
-import { colors, defaultColor } from "../utils/colors"
 
 import SocialLinks from "./socials"
 
@@ -25,13 +24,28 @@ const getColorByType = (type, theme) => {
   }
 }
 
+const ResumeContent = styled.div`
+  h1,h2,h3,h4,h5,h6 {
+    color: ${props => props.theme.header.hex}
+  }
+  p, ul, li, span, blockquote {
+    color: ${props => props.theme.header.hex}
+  }
+  a {
+    color: ${props => props.theme.link.hex}
+    &:hover {
+      color: ${props => props.theme.link.hex}
+    }
+  }
+`
+
 const H3 = styled.h3`
   display: flex;
   flex-direction: column;
 `
 
 const H4 = styled.h4`
-  color: hsla(0, 0%, 0%, 0.75);
+  opacity: 0.75;
 `
 
 const TwoCol = styled.span`
@@ -60,7 +74,7 @@ const TitleSpan = styled(TwoColCell)`
 
 const InfoSpan = styled(TwoColCell)`
   font-size: ${rhythm(3 / 4)};
-  color: hsla(0, 0%, 0%, 0.75);
+  opacity: 0.75;
 `
 
 const UL = styled.ul`
@@ -75,12 +89,6 @@ const UL = styled.ul`
 
 const LI = styled.li`
   margin-right: ${rhythm(1 / 2)};
-  background-color: ${props => {
-    let color = getColorByType(props.type, props.theme)
-    return Color(color).isDark()
-      ? Color(color).lighten(0.85).hex()
-      : Color(color).lighten(0.25).hex()
-  }};
   padding: ${rhythm(1 / 8)} ${rhythm(1 / 4)};
   font-size: ${rhythm(1 / 2)};
 `
@@ -90,8 +98,12 @@ const HR = styled.hr`
   margin: ${rhythm(2)} auto;
 `
 
+const Footer = styled.p`
+  text-align: center;
+`
+
 const Resume = ({ resume }) => (
-  <div>
+  <ResumeContent>
     <h2>Experience</h2>
     <HR />
     {resume.experience.map(e => (
@@ -122,12 +134,12 @@ const Resume = ({ resume }) => (
         <HR />
       </Fragment>
     ))}
-    <p style={{ textAlign: "center" }}>
+    <Footer>
       Expanded CV available on{" "}
       <a href={"https://linkedin.com/in/jenniferascroggins/"}>LinkedIn</a>{" "}
       &raquo;
-    </p>
-  </div>
+    </Footer>
+  </ResumeContent>
 )
 
 export default Resume

@@ -8,6 +8,7 @@ import { TypographyStyle, GoogleFont } from "react-typography"
 import { palettes } from "../utils/colors"
 import typography, { rhythm } from "../utils/typography"
 
+import Background from "./background"
 import Header from "./header"
 
 import "./global.css"
@@ -35,18 +36,20 @@ const Layout = ({ about, children, onChange, view }) => {
   })
 
   return (
-    <ThemeProvider theme={palettes.grayScale}>
+    <ThemeProvider theme={palettes.miamiSunset}>
       <TypographyStyle typography={typography} />
       <GoogleFont typography={typography} />
-      <Header
-        about={about}
-        onChange={onChange}
-        siteTitle={data.site.siteMetadata?.title || `Title`}
-        view={view}
-      />
-      <Main style={mainSpring} view={view}>
-        {children}
-      </Main>
+      <Background view={view}>
+        <Header
+          about={about}
+          onChange={onChange}
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+          view={view}
+        />
+        <Main style={mainSpring} view={view}>
+          {children}
+        </Main>
+      </Background>
     </ThemeProvider>
   )
 }

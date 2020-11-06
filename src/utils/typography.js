@@ -8,6 +8,7 @@ const linkColor = defaultColor.hex
 typeTheme.overrideThemeStyles = ({ scale, rhythm }, options) => ({
   a: {
     color: linkColor,
+    textShadow: "none",
     backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, ${linkColor} 1px, ${linkColor} 2px, rgba(0, 0, 0, 0) 2px)`, // eslint-disable-line
   },
 })
