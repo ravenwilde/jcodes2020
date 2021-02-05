@@ -5,11 +5,12 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 import { TypographyStyle, GoogleFont } from "react-typography"
 
-import { palettes } from "../utils/colors"
-import typography, { rhythm } from "../utils/typography"
+import { palettes } from "../../utils/colors"
+import typography, { rhythm } from "../../utils/typography"
 
 import Background from "./background"
 import Header from "./header"
+import SEO from "./seo"
 
 import "./global.css"
 
@@ -19,7 +20,7 @@ const Main = styled(animated.main)`
   padding: 0 ${rhythm(1)};
 `
 
-const Layout = ({ about, children, onChange, view }) => {
+const Layout = ({ about, children, onChange, title, view }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -39,6 +40,7 @@ const Layout = ({ about, children, onChange, view }) => {
     <ThemeProvider theme={palettes.miamiSunset}>
       <TypographyStyle typography={typography} />
       <GoogleFont typography={typography} />
+      <SEO title={title} />
       <Background view={view}>
         <Header
           about={about}
@@ -58,6 +60,7 @@ Layout.propTypes = {
   about: PropTypes.string,
   children: PropTypes.node,
   onChange: PropTypes.func,
+  title: PropTypes.string,
   view: PropTypes.string,
 }
 

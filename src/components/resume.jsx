@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Color from "color"
 import { Link } from "gatsby"
 
+import { min } from "../utils/mediaQueries"
 import { scale, rhythm } from "../utils/typography"
 
 import SocialLinks from "./socials"
@@ -52,7 +53,7 @@ const TwoCol = styled.span`
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
-  @media (min-width: 50em) {
+  @media (${min.md}) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -63,7 +64,7 @@ const TwoCol = styled.span`
 
 const TwoColCell = styled.span`
   margin-bottom: ${rhythm(0.5)};
-  @media (min-width: 50em) {
+  @media (${min.md}) {
     margin-bottom: ${rhythm(0.25)};
   }
 `

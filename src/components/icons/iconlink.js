@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import Color from "color"
 
+import { min } from "../../utils/mediaQueries"
+
 const IconLink = styled.a`
   display: block;
   width: 32px;
@@ -12,11 +14,11 @@ const IconLink = styled.a`
     color: ${props => Color(props.theme.primary.hex).lighten(0.5).hex()};
     cursor: pointer;
   }
-  @media (min-width: 50em) {
+  @media (${min.md}) {
     width: 40px;
     height: 40px;
   }
-  @media (min-width: 50em) {
+  @media (${min.md}) {
     width: 48px;
     height: 48px;
   }

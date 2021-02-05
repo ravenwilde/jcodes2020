@@ -4,7 +4,6 @@ import { reduce, assign } from "lodash"
 import ErrorBoundary from "../components/errorBoundary"
 import Layout from "../components/layout"
 import Resume from "../components/resume"
-import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
   const [view, setView] = useState("index")
@@ -25,16 +24,18 @@ const IndexPage = ({ data }) => {
   }
 
   return (
-    <Layout
-      view={view}
-      onChange={handleChange}
-      about={content.resume && content.resume.statement}
-    >
-      <SEO title="Home" />
-      {view === "resume" && content.resume && (
-        <Resume resume={content.resume} />
-      )}
-    </Layout>
+    <ErrorBoundary name="Layout">
+      <Layout
+        view={view}
+        onChange={handleChange}
+        about={content.resume && content.resume.statement}
+        title={'Hello'}
+      >
+        {view === "resume" && content.resume && (
+          <Resume resume={content.resume} />
+        )}
+      </Layout>
+    </ErrorBoundary>
   )
 }
 

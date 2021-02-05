@@ -6,6 +6,7 @@ const palettes = {
     midLight: { name: "mid_light_gray", hex: "#a9a9a9" },
     midDark: { name: "mid_dark_gray", hex: "#707070" },
     dark: { name: "dark_gray", hex: "#4F4F4F" },
+    
     header: { name: "white", hex: "#FFFFFF" },
     text: { name: "white", hex: "#FFFFFF" },
     link: { name: "light_gray", hex: "#c0c0c0" },
@@ -20,6 +21,7 @@ const palettes = {
     midLight: { name: "new_york_pink", hex: "#DA727E" },
     midDark: { name: "turkish_rose", hex: "#AC6C82" },
     dark: { name: "smoky", hex: "#685C79" },
+    
     header: { name: "white", hex: "#FFFFFF" },
     text: { name: "white", hex: "#FFFFFF" },
     link: { name: "texas_rose", hex: "#FFAA5C" },

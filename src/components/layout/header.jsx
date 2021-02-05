@@ -1,12 +1,14 @@
+import Color from "color"
 import PropTypes from "prop-types"
 import React from "react"
 import { animated, useSpring } from "react-spring"
-import styled from "styled-components"
+import styled, { withTheme } from "styled-components"
 
-import { rhythm } from "../utils/typography"
+import { min } from "../../utils/mediaQueries"
+import { rhythm } from "../../utils/typography"
 
-import Button from "./button"
-import ErrorBoundary from "./errorBoundary"
+import ErrorBoundary from "../errorBoundary"
+import Nav from "./nav";
 
 const HeaderStyled = styled(animated.header)`
   display: flex;
@@ -40,41 +42,31 @@ const Content = styled.div`
   position: relative;
 `
 
-const Nav = styled(animated.nav)`
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 600px;
-  padding-left: ${rhythm(1)};
-  padding-right: ${rhythm(1)};
-  width: 100%;
-`
-
 const ContentCard = styled(animated.div)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: ${rhythm(4)};
   padding: 0px ${rhythm(1)};
   position: absolute;
   width: 100%;
-  @media (min-width: 30em) {
+  @media (${min.sm}) {
     height: ${rhythm(3)};
   }
-  @media (min-width: 60em) {
+  @media (${min.lg}) {
     height: ${rhythm(6)};
   }
 `
 
-const H1 = styled.h1`
+const H1 = styled(animated.h1)`
   font-size: ${rhythm(1.2)};
   margin: 0;
   text-align: center;
-  @media (min-width: 30em) {
+  @media (${min.sm}) {
     font-size: ${rhythm(1.5)};
   }
-  @media (min-width: 60em) {
+  @media (${min.lg}) {
     font-size: ${rhythm(3)};
   }
 `
@@ -84,20 +76,27 @@ const About = styled.p`
   line-height: ${rhythm(1)};
   margin: 0;
   text-align: center;
-  @media (min-width: 30em) {
+  @media (${min.sm}) {
     font-size: ${rhythm(0.75)};
     line-height: ${rhythm(1.2)};
   }
-  @media (min-width: 60em) {
+  @media (${min.lg}) {
     font-size: ${rhythm(1)};
     line-height: ${rhythm(1.5)};
   }
 `
 
-const Header = ({ about, onChange, siteTitle, view }) => {
+const Header = ({ about, onChange, siteTitle, theme, view }) => {
   const headerSpring = useSpring({
     height: view !== "resume" ? "100vh" : "35vh",
   })
+  const textSpring = useSpring({
+    paddingBottom: view !== "resume" ? rhythm(1.5) : '0em',
+    color: Color(theme[view].hex).lighten(0.99).hex(),
+    textShadow: 
+      `2px 2px 10px ${Color(theme[view].hex).darken(0.4).hex()},
+      -2px -2px 4px ${Color(theme[view].hex).lighten(0.4).hex()}`,
+  });
 
   const { transform, opacity } = useSpring({
     opacity: view !== "about" ? 1 : 0,
@@ -105,10 +104,6 @@ const Header = ({ about, onChange, siteTitle, view }) => {
     config: { mass: 5, tension: 500, friction: 80 },
   })
 
-  const navSpring = useSpring({
-    paddingBottom: view !== "resume" ? rhythm(4) : rhythm(),
-    paddingTop: view !== "resume" ? rhythm(2) : rhythm(),
-  })
 
   return (
     <HeaderStyled style={headerSpring} view={view}>
@@ -121,7 +116,7 @@ const Header = ({ about, onChange, siteTitle, view }) => {
             }}
             view={view}
           >
-            <H1 view={view}>{siteTitle}</H1>
+            <H1 style={textSpring} view={view}>{siteTitle}</H1>
           </ContentCard>
           <ContentCard
             style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
@@ -130,22 +125,7 @@ const Header = ({ about, onChange, siteTitle, view }) => {
             <About view={view}>{about}</About>
           </ContentCard>
         </Content>
-        <Nav style={navSpring} view={view}>
-          <Button onClick={onChange} name="navOne" type="button" value="index">
-            Hello
-          </Button>
-          <Button onClick={onChange} name="navTwo" type="button" value="about">
-            About
-          </Button>
-          <Button
-            onClick={onChange}
-            name="navThree"
-            type="button"
-            value="resume"
-          >
-            Resume
-          </Button>
-        </Nav>
+        <Nav onChange={onChange} view={view}/>
       </ErrorBoundary>
     </HeaderStyled>
   )
@@ -164,4 +144,4 @@ Header.defaultProps = {
   view: `index`,
 }
 
-export default Header
+export default withTheme(Header)
