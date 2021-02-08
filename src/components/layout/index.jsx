@@ -42,12 +42,15 @@ const Layout = ({ about, children, onChange, title, view }) => {
       <GoogleFont typography={typography} />
       <SEO title={title} />
       <Background view={view}>
-        <Header
-          about={about}
-          onChange={onChange}
-          siteTitle={data.site.siteMetadata?.title || `Title`}
-          view={view}
-        />
+        {view !== 'notFound' && (
+          <Header
+            about={about}
+            onChange={onChange}
+            siteTitle={data.site.siteMetadata?.title || `Title`}
+            view={view}
+          />
+        )}
+
         <Main style={mainSpring} view={view}>
           {children}
         </Main>

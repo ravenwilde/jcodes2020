@@ -28,6 +28,7 @@ const palettes = {
     index: { name: "blue_bayoux", hex: "#455C7B" },
     about: { name: "turkish_rose", hex: "#AC6C82" },
     resume: { name: "smoky", hex: "#685C79" },
+    notFound: { name: "blue_bayoux", hex: "#455C7B" },
   },
 }
 
