@@ -93,9 +93,6 @@ const Header = ({ about, onChange, siteTitle, theme, view }) => {
   const textSpring = useSpring({
     paddingBottom: view !== "resume" ? rhythm(1.5) : '0em',
     color: Color(theme[view].hex).lighten(0.99).hex(),
-    textShadow: 
-      `2px 2px 10px ${Color(theme[view].hex).darken(0.4).hex()},
-      -2px -2px 4px ${Color(theme[view].hex).lighten(0.4).hex()}`,
   });
 
   const { transform, opacity } = useSpring({

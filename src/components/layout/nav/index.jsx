@@ -32,9 +32,6 @@ const Nav = ({ theme, onChange, view }) => {
   const barSpring = useSpring({
     background: theme[view].hex,
     border: `4px solid ${theme[view].hex}`,
-    boxShadow: 
-      `${Color(theme[view].hex).darken(0.4).fade(0.2).rgb()} 8px 16px 30px 0,
-      ${Color(theme[view].hex).lighten(0.15).fade(0.1).rgb()} -8px -8px 40px 0`,
   })
   return(
     <NavStyled style={navSpring} theme={theme} view={view}>

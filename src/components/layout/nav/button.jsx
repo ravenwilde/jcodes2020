@@ -8,6 +8,7 @@ import { min } from "../../../utils/mediaQueries"
 import { rhythm } from "../../../utils/typography"
 
 const ButtonStyled = styled(animated.button)`
+  background-color: transparent;
   border: 0;
   display: inline-block;
   flex-grow: 1;
@@ -75,9 +76,6 @@ const ButtonStyled = styled(animated.button)`
 
 const Button = ({ value, view, theme, ...props }) => {
   const btnSpring = useSpring({
-    background: view === value
-      ? `linear-gradient(175deg, ${Color(theme[view].hex).darken(0.2).hex()}, ${Color(theme[view].hex).lighten(0.1).hex()})`
-      : `linear-gradient(175deg, ${theme[view].hex}, ${theme[view].hex})`,
     color: view === value
       ? Color(theme[view].hex).lighten(0.5).hex()
       : Color(theme[view].hex).darken(0.4).hex(),
