@@ -7,25 +7,19 @@ import LinkedInIconLink from "./icons/linkedin"
 import { min } from "../utils/mediaQueries"
 
 const Links = styled.div`
-  align-self: flex-end;
-  display: grid;
-  grid-template-columns: 32px 32px;
-  grid-template-rows: auto;
-  grid-gap: 16px;
-  @media (${min.sm}) {
-    align-self: center;
-    grid-template-columns: auto;
-    grid-template-rows: 40px 40px;
-  }
-  @media (${min.md}) {
-    grid-gap: 24px;
-    grid-template-rows: 48px 48px;
+  display: flex;
+  align: center;
+  justify-content: center;
+  width: 100%;
+  
+  a {
+    margin: 0 0.5em;
   }
 `
 
-const SocialLinks = ({ style }) => {
+const SocialLinks = ({ theme }) => {
   return (
-    <Links style={style}>
+    <Links theme={theme}>
       <GitHubIconLink />
       <LinkedInIconLink />
     </Links>

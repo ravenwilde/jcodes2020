@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react"
 import styled from "styled-components"
 
@@ -25,12 +26,14 @@ const P = styled.p`
   opacity: 0.75;
   text-align: center;
   font-size: ${rhythm(1.2)};
+  padding-bottom: ${rhythm()};
 `;
 
 const NotFoundPage = () => (
   <Layout view={"notFound"} title="404: Not found">
     <H1>404: Not Found</H1>
     <P>You just hit a route that doesn&#39;t exist... the sadness.</P>
+    <P><Link to="/">Home</Link></P>
   </Layout>
 )
 

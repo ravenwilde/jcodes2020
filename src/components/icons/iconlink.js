@@ -10,9 +10,11 @@ const IconLink = styled.a`
   color: ${props => Color(props.theme.primary.hex).darken(0.4).hex()};
   transition: all 0.3s ease;
   background-image: none;
+  &:focus,
   &:hover {
     color: ${props => Color(props.theme.primary.hex).lighten(0.5).hex()};
     cursor: pointer;
+    outline: none;
   }
   @media (${min.md}) {
     width: 40px;

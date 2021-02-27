@@ -100,6 +100,7 @@ const HR = styled.hr`
 `
 
 const Footer = styled.p`
+  padding: ${rhythm()} 0 ${rhythm(4)};
   text-align: center;
 `
 
