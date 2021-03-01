@@ -1,6 +1,6 @@
 import Color from "color"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled, { withTheme } from "styled-components"
 
@@ -51,11 +51,9 @@ const ButtonStyled = styled(animated.button)`
   }
 
   &:first-child {
-    border-radius: 20px 0 0 20px;
     margin-left: 0;
   }
   &:last-child {
-    border-radius: 0 20px 20px 0;
     margin-right: 0;
   }
 
@@ -75,13 +73,24 @@ const ButtonStyled = styled(animated.button)`
 `
 
 const Button = ({ value, view, theme, ...props }) => {
+  const [hover, setHover] = useState(false);
+  const active = view === value;
   const btnSpring = useSpring({
-    color: view === value
-      ? Color(theme[view].hex).lighten(0.5).hex()
-      : Color(theme[view].hex).darken(0.4).hex(),
+    color: active || hover
+      ? Color(theme[view].hex).lighten(0.9).hex()
+      : Color(theme[view].hex).darken(0.5).hex(),
   });
+
   return (
-    <ButtonStyled style={btnSpring} value={value} view={view} theme={theme} {...props} />
+    <ButtonStyled
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}  
+      style={btnSpring}
+      value={value}
+      view={view}
+      theme={theme}
+      {...props}
+    />
   );
 }
 

@@ -12,6 +12,7 @@ import Button from "./button"
 const NavStyled = styled(animated.nav)`
   margin: 0 auto;
   max-width: 600px;
+  padding-bottom: ${rhythm(1)};  
   padding-left: ${rhythm(1)};
   padding-right: ${rhythm(1)};
   width: 100%;
@@ -24,17 +25,10 @@ const ButtonBar = styled(animated.div)`
 `
 
 const Nav = ({ theme, onChange, view }) => {
-  const navSpring = useSpring({
-    paddingBottom: view !== "resume" ? rhythm() : rhythm(),
-    paddingTop: view !== "resume" ? rhythm() : rhythm(),
-  })
-  const barSpring = useSpring({
-    background: theme[view].hex,
-  })
   return(
     <ErrorBoundary name="Nav">
-      <NavStyled style={navSpring} theme={theme} view={view}>
-        <ButtonBar style={barSpring} theme={theme} view={view}>
+      <NavStyled theme={theme} view={view}>
+        <ButtonBar theme={theme} view={view}>
           <Button
             onClick={onChange}
             name="navOne"

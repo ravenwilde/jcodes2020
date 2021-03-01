@@ -32,6 +32,6 @@ const palettes = {
   },
 }
 
-const defaultColor = palettes.grayScale.light
+const defaultColor = palettes.miamiSunset.text
 
 export { palettes, defaultColor }
