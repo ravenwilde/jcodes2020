@@ -3,7 +3,6 @@ import React from "react"
 import { animated, useSpring } from "react-spring"
 import styled, { withTheme } from "styled-components"
 
-import { min } from "../../utils/mediaQueries"
 import { rhythm } from "../../utils/typography"
 
 import ErrorBoundary from "../errorBoundary"

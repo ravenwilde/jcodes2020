@@ -11,14 +11,8 @@ import SocialLinks from "../socials"
 
 const H1 = styled(animated.h1)`
 text-align: center;
-font-size: ${rhythm(1.2)};
+font-size: 8vmin;
 margin: 0;
-
-@media (${min.sm}) {
-  font-size: ${rhythm(2)};
-}
-@media (${min.lg}) {
-  font-size: ${rhythm(3)};
 `
 
 const Div = styled(animated.div)`
@@ -50,13 +44,14 @@ const Hello = ({ siteTitle, theme, view }) => {
     color: Color(theme[view].hex).lighten(0.99).hex(),
     marginBottom: !compactView ? rhythm(1) : "0em",
     marginTop: !compactView ? rhythm(4) : "0em",
+    textShadow: `0px 1px 4px ${Color(theme[view].hex).darken(0.4).hex()}`,
   });
   const divSpring = useSpring({
     display: !compactView ? "block" : "none",
     opacity: !compactView ? 1 : 0,
   });
   const textSpring = useSpring({
-    color: Color(theme[view].hex).lighten(0.99).hex(),
+    color: Color(theme[view].hex).lighten(0.8).hex(),
   });
 
   return (
